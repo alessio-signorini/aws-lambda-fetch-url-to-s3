@@ -9,12 +9,12 @@ def lambda_handler(event, context):
     response = urllib2.urlopen(url)
 
     s3 = boto3.resource('s3')
-    o  = s3.Object('backups', path).initiate_multipart_upload()
+    o  = s3.Object('bucket-name', path).initiate_multipart_upload()
 
     i = 1
     parts = []
     while True:
-        chunk = response.read(200 * 1000000)
+        chunk = response.read(50 * 1000000)
         if chunk:
             x = o.Part(i).upload(Body=chunk)
             parts.append({"ETag":x["ETag"], "PartNumber":i})
