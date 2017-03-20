@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     response = urllib2.urlopen(url)
 
     s3 = boto3.resource('s3')
-    o  = s3.Object('backups.acm', path).initiate_multipart_upload()
+    o  = s3.Object('backups', path).initiate_multipart_upload()
 
     i = 1
     parts = []
