@@ -13,6 +13,6 @@ To test the script locally create a `~/.boto` file in your home directory with t
     aws_secret_access_key = YOUR_SECRET_ACCESS_KEY
 
 ### Deploy on AWS Lambda
-1. Go to AWS Lambda and create a Function[https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions]
+1. Go to AWS Lambda and create a [Function](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions)
 2. Configure it for at least 512Mb of RAM and set the `handler` to `lambda_function.lambda_handler`
 3. Make sure to assign it a IAM Role which allows the `ObjectPut` operation on the S3 bucket you want to write to and its descendents (`.../*`)
