@@ -19,8 +19,6 @@ def lambda_handler(event, context):
             x = o.Part(i).upload(Body=chunk)
             parts.append({"ETag":x["ETag"], "PartNumber":i})
             del(chunk)
-            if i == 3:
-                break
         else:
             break
         print i
